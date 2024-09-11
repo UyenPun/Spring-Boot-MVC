@@ -3,10 +3,10 @@ package com.company.controller;
 import com.company.service.UserService;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.bind.annotation.ResponseBody;
+// import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class UserController {
@@ -20,7 +20,7 @@ public class UserController {
   @RequestMapping("/")
   public String getHomePage() {
     String test = this.userService.handleHello();
-    return "index.html"; // http://localhost:8080/index.html
+    return "hello";
   }
 
 }
