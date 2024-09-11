@@ -1,16 +1,30 @@
 package com.company.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.company.service.UserService;
 
-@Controller
+// import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController // Tự động trả về chuỗi hoặc dữ liệu thay vì view
 public class UserController {
+  // @RequestMapping("/")
+  // public String getHomePage() {
+  // return "Hello Home Page";
+  // }
 
-  @RequestMapping("/")
-  @ResponseBody // Giúp Spring trả về chuỗi như là nội dung phản hồi HTTP.
+  // DI: dependency injection
+  private UserService userService;
+
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
+
+  @GetMapping("")
   public String getHomePage() {
-    return "Hello Home Page";
+    return this.userService.handleHello();
   }
 
 }
