@@ -23,4 +23,10 @@ public class UserController {
     return "hello";
   }
 
+  @RequestMapping("/admin/user")
+  public String getUserPage(Model model) {
+    String test = this.userService.handleHello();
+    return "admin/user/create"; // đường dẫn file
+  }
+
 }
