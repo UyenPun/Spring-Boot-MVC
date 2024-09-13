@@ -1,7 +1,6 @@
 package com.company.controller;
 
 import com.company.domain.User;
-import com.company.repository.UserRepository;
 import com.company.service.UserService;
 
 import org.springframework.stereotype.Controller;
@@ -9,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -21,6 +21,9 @@ public class UserController {
 
   @RequestMapping("/")
   public String getHomePage(Model model) {
+    List<User> arrUsers = this.userService.getAllUser();
+    System.out.println(arrUsers);
+
     model.addAttribute("message", "test");
     model.addAttribute("message2", "Welcome to from Controller!");
     return "hello";

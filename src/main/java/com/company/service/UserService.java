@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.company.domain.User;
 import com.company.repository.UserRepository;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -13,8 +14,16 @@ public class UserService {
     this.userRepository = userRepository;
   }
 
+  public List<User> getAllUser() {
+    return this.userRepository.findAll();
+  }
+
+  public List<User> getAllUserByEmail(String email) {
+    return this.userRepository.findByEmail(email);
+  }
+
   public String handleHello() {
-    return "Hello from UserService";
+    return "Hello Server";
   }
 
   public User handleSaveUser(User user) {
@@ -22,4 +31,5 @@ public class UserService {
     // System.out.println(pun);
     return pun;
   }
+
 }
