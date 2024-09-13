@@ -58,7 +58,8 @@ public class User {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
-    return super.toString();
+    return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName + ", address="
+        + address + ", phone=" + phone + "]";
   }
+
 }
