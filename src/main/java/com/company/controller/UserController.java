@@ -29,13 +29,24 @@ public class UserController {
     return "hello";
   }
 
+  // @RequestMapping("/admin/user")
+  // public String getUserPage(Model model) {
+  // model.addAttribute("newUser", new User());
+  // return "admin/user/create"; // link file jsp
+  // }
+
   @RequestMapping("/admin/user")
   public String getUserPage(Model model) {
-    model.addAttribute("newUser", new User());
-    return "admin/user/create"; // link file jsp
+    return "admin/user/table-user";
   }
 
-  @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+  @RequestMapping("/admin/user/create") // GET
+  public String getCreateUserPage(Model model) {
+    model.addAttribute("newUser", new User());
+    return "admin/user/create";
+  }
+
+  @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
   public String createUserPage(Model model, @ModelAttribute("newUser") User newUser) { //
     System.out.println("run here" + newUser);
     this.userService.handleSaveUser(newUser);
