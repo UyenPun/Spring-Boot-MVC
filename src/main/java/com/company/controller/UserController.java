@@ -29,14 +29,11 @@ public class UserController {
     return "hello";
   }
 
-  // @RequestMapping("/admin/user")
-  // public String getUserPage(Model model) {
-  // model.addAttribute("newUser", new User());
-  // return "admin/user/create"; // link file jsp
-  // }
-
   @RequestMapping("/admin/user")
   public String getUserPage(Model model) {
+    List<User> users = this.userService.getAllUser();
+    // System.out.println(">> check Users:" + arrUsers);
+    model.addAttribute("users1", users);
     return "admin/user/table-user";
   }
 
@@ -48,9 +45,9 @@ public class UserController {
 
   @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
   public String createUserPage(Model model, @ModelAttribute("newUser") User newUser) { //
-    System.out.println("run here" + newUser);
+    // System.out.println("run here" + newUser);
     this.userService.handleSaveUser(newUser);
-    return "hello";
+    return "redirect:/admin/user"; // khi tạo xong tự chuyển trang
   }
 
 }
