@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -84,6 +86,28 @@ public class UserController {
       this.userService.handleSaveUser(currenUser);
     }
 
+    return "redirect:/admin/user"; // khi tạo xong tự chuyển trang
+  }
+
+  // Delete:
+  @GetMapping("/admin/user/delete/{id}")
+  public String getDeleteUpdateUserPage(Model model, @PathVariable long id) {
+    model.addAttribute("id", id);
+
+    // Cách 1: để lấy đúng giá trị id (vì ban đầu id = 0 -> vì nếu truyền ngay là
+    // new mà không set lại giá trị id)
+    // User user = new User();
+    // user.setId(id);
+
+    model.addAttribute("newUser", new User()); // truyền user vừa set id vào
+    return "admin/user/delete";
+  }
+
+  @PostMapping("/admin/user/delete")
+  public String postDeleteUpdateUser(Model model, @ModelAttribute("newUser") User newUser) {
+    // System.out.println("run here");
+
+    this.userService.deleteByUser(newUser.getId());
     return "redirect:/admin/user"; // khi tạo xong tự chuyển trang
   }
 
