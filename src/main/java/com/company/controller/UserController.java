@@ -41,8 +41,10 @@ public class UserController {
   // get id
   @RequestMapping("/admin/user/{id}")
   public String getUserDetailPage(Model model, @PathVariable long id) { // lấy động được id
-    System.out.println("Check path id:" + id);
+    // System.out.println("Check path id:" + id);
 
+    User user = this.userService.getByUserId(id); // lấy ra id bên service
+    model.addAttribute("user", user); // hiển thị id lên view
     model.addAttribute("id", id);
     return "admin/user/show";
   }

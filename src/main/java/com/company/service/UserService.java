@@ -32,4 +32,7 @@ public class UserService {
     return pun;
   }
 
+  public User getByUserId(long id) {
+    return this.userRepository.findById(id);
+  }
 }
