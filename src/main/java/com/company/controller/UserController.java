@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class UserController {
@@ -59,6 +61,29 @@ public class UserController {
   public String createUserPage(Model model, @ModelAttribute("newUser") User newUser) { //
     // System.out.println("run here" + newUser);
     this.userService.handleSaveUser(newUser);
+    return "redirect:/admin/user"; // khi tạo xong tự chuyển trang
+  }
+
+  @RequestMapping("/admin/user/update/{id}") // GET
+  public String getUpdateUserPage(Model model, @PathVariable long id) {
+    User currenUser = this.userService.getByUserId(id);
+    model.addAttribute("newUser", currenUser);
+    return "admin/user/update";
+  }
+
+  @PostMapping("/admin/user/update") // Method POST
+  public String postUpdateUser(Model model, @ModelAttribute("newUser") User newUser) {
+    User currenUser = this.userService.getByUserId(newUser.getId()); // lúc này bên phía view đã có id rồi
+    if (currenUser != null) {
+      // System.out.println("run here");
+      currenUser.setAddress(newUser.getAddress());
+      currenUser.setFullName(newUser.getFullName());
+      currenUser.setPhone(newUser.getPhone());
+
+      // lưu xuống database:
+      this.userService.handleSaveUser(newUser);
+    }
+
     return "redirect:/admin/user"; // khi tạo xong tự chuyển trang
   }
 
