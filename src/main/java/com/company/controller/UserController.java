@@ -81,7 +81,7 @@ public class UserController {
       currenUser.setPhone(newUser.getPhone());
 
       // lưu xuống database:
-      this.userService.handleSaveUser(newUser);
+      this.userService.handleSaveUser(currenUser);
     }
 
     return "redirect:/admin/user"; // khi tạo xong tự chuyển trang
