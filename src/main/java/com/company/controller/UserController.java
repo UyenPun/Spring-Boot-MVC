@@ -80,7 +80,7 @@ public class UserController {
       currenUser.setFullName(newUser.getFullName());
       currenUser.setPhone(newUser.getPhone());
 
-      // lưu xuống database:
+      // lưu xuống database: (fix bug here)
       this.userService.handleSaveUser(currenUser);
     }
 
