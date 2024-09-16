@@ -7,67 +7,81 @@ import jakarta.persistence.Id;
 
 @Entity
 public class User {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
-  private String email;
-  private String password;
-  private String fullName;
-  private String address;
-  private String phone;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-  public long getId() {
-    return id;
-  }
+    private String email;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    private String password;
+    private String fullName;
+    private String address;
+    private String phone;
 
-  public String getEmail() {
-    return email;
-  }
+    private String avatar;
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    // roleId
 
-  public String getPassword() {
-    return password;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public String getFullName() {
-    return fullName;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public void setFullName(String fullName) {
-    this.fullName = fullName;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public String getAddress() {
-    return address;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public String getPhone() {
-    return phone;
-  }
+    public String getFullName() {
+        return fullName;
+    }
 
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-  @Override
-  public String toString() {
-    return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName + ", address="
-        + address + ", phone=" + phone + "]";
-  }
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
+                + ", address=" + address + ", phone=" + phone + "]";
+    }
 
 }
