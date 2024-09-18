@@ -1,0 +1,3 @@
+- List: cho phép lưu trùng (duplicate), và theo thứ tự (order)
+- Set: không lưu trùng (unique) và không theo thứ tự
+- Ctrl + K, press S -> lưu đồng thời nhiều file cùng một lúc
