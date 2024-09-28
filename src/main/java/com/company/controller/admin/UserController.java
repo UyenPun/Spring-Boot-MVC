@@ -1,4 +1,4 @@
-package com.company.controller;
+package com.company.controller.admin;
 
 import com.company.domain.User;
 import com.company.service.UserService;
@@ -39,7 +39,7 @@ public class UserController {
     List<User> users = this.userService.getAllUser();
     // System.out.println(">> check Users:" + arrUsers);
     model.addAttribute("users1", users);
-    return "admin/user/table-user";
+    return "admin/user/show";
   }
 
   // get id
@@ -50,7 +50,7 @@ public class UserController {
     User user = this.userService.getByUserId(id); // lấy ra id bên service
     model.addAttribute("user", user); // hiển thị id lên view
     model.addAttribute("id", id);
-    return "admin/user/show";
+    return "admin/user/detail";
   }
 
   @RequestMapping("/admin/user/create") // GET

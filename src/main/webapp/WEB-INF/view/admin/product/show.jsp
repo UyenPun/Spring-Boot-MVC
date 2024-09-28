@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="Trần Uyên - Dự án laptopshop" />
       <meta name="author" content="Trần Uyên" />
-      <title>Dashboard - Trần Uyên</title>
+      <title>Product - Trần Uyên</title>
       <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
       <link href="/css/styles.css" rel="stylesheet" />
       <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -25,11 +25,13 @@
         <div id="layoutSidenav_content">
           <main>
             <div class="container-fluid px-4">
-              <h1 class="mt-4">Dashboard</h1>
+              <h1 class="mt-4">Manage Products</h1>
               <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
+                <li class="breadcrumb-item active">Products</li>
               </ol>
-              <div>product</div>
+
+              <div>table product</div>
             </div>
           </main>
           <jsp:include page="../layout/footer.jsp" />
